@@ -1,8 +1,8 @@
-import express from "express";
-import mongoose from "mongoose";
-import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
-import Form from "./models/Form";
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const dotenv = require("dotenv");
+const Form = require("./models/Form");
 const app = express();
 dotenv.config();
 
@@ -17,12 +17,12 @@ const connect = async () => {
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
-
+mongoose.set("strictQuery", true);
 app.get(
   "/api/102e4a99e1d2e239f518578f7233623437513e5f/all",
   async (req, res) => {
     try {
-      const data = Form.find();
+      const data = await Form.find();
       res.status(200).json(data);
     } catch (error) {
       res.status(400).json(error);
