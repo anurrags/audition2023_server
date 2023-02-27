@@ -6,6 +6,10 @@ const Form = require("./models/Form");
 const app = express();
 dotenv.config();
 
+// middlewares
+app.use(express.json());
+app.use(cors());
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
