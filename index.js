@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const Form = require("./models/Form");
 const app = express();
@@ -36,7 +36,7 @@ app.get(
 app.get("/", (req, res) => {
   res.send("Hello from CSS");
 });
+connect();
 app.listen(process.env.PORT, () => {
-  connect();
   console.log(`Listening on port localhost:${process.env.PORT}`);
 });
