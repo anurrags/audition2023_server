@@ -33,7 +33,9 @@ app.get(
     }
   }
 );
-
+app.get("/", (req, res) => {
+  res.send("Hello from CSS");
+});
 app.listen(process.env.PORT, () => {
   connect();
   console.log(`Listening on port localhost:${process.env.PORT}`);
