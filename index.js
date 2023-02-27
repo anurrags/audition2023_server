@@ -29,8 +29,8 @@ app.get(
     }
   }
 );
-
+connect();
 app.listen(process.env.PORT, () => {
-  connect();
+  
   console.log(`Listening on port localhost:${process.env.PORT}`);
 });
